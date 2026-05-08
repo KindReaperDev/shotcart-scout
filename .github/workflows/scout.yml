@@ -39,5 +39,4 @@ jobs:
         run: |
           git config --global user.email "scout-bot@shotcart.app"
           git config --global user.name "ShotCart Scout Bot"
-          git add index.html
-          git diff --staged --quiet || git commit -m "Update dashboard $(date +'%Y-%m-%d')" && git push
+          python -c "import os; os.path.exists('index.html') or open('index.html','
