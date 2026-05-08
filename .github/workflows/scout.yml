@@ -24,11 +24,6 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic requests
 
-      - name: Write main.py
-        env:
-          MAIN_PY_B64: ${{ secrets.MAIN_PY_B64 }}
-        run: echo "$MAIN_PY_B64" | base64 -d > main.py
-
       - name: Run event scout
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
