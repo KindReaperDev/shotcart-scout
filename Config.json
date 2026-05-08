@@ -1,0 +1,38 @@
+{
+  "location_center": {
+    "lat": 42.3314,
+    "lng": -83.0458,
+    "name": "Detroit, MI"
+  },
+
+  "days_ahead": 30,
+
+  "scoring_weights": {
+    "weather":     0.35,
+    "golden_hour": 0.30,
+    "attendance":  0.20,
+    "parking":     0.15
+  },
+
+  "search_queries": {
+    "Farmers Markets": [
+      "Wayne County Michigan farmers market schedule 2026",
+      "Metro Detroit outdoor farmers market summer 2026"
+    ],
+    "Sports Events": [
+      "Detroit Tigers home game schedule June 2026",
+      "Detroit Pistons Red Wings upcoming game 2026",
+      "Detroit FC soccer Wayne County 2026"
+    ],
+    "Festivals & Fairs": [
+      "Wayne County Michigan outdoor festival summer 2026",
+      "Metro Detroit fair expo street festival 2026",
+      "Downriver Detroit cultural festival 2026"
+    ],
+    "Recreational Events": [
+      "Wayne County 5k 10k run race 2026",
+      "Metro Detroit triathlon outdoor community event 2026",
+      "Wayne County pickleball tournament charity walk 2026"
+    ]
+  }
+}
