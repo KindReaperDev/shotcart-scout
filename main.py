@@ -1,8 +1,3 @@
-“””
-ShotCart Event Scout
-Finds and scores photography opportunities in Wayne County / Metro Detroit.
-Runs every 2 days via GitHub Actions and writes index.html for GitHub Pages.
-“””
 
 import json
 import requests
