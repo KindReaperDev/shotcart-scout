@@ -1,0 +1,41 @@
+name: ShotCart Event Scout
+
+on:
+  schedule:
+    # Every 2 days at 9:00 AM Eastern (1:00 PM UTC)
+    - cron: '0 13 */2 * *'
+  workflow_dispatch:   # Lets you trigger a manual run from GitHub any time
+
+permissions:
+  contents: write
+
+jobs:
+  run-scout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Run event scout
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SERPER_API_KEY:    ${{ secrets.SERPER_API_KEY }}
+        run: python main.py
+
+      - name: Commit updated dashboard
+        run: |
+          git config --global user.email "scout-bot@shotcart.app"
+          git config --global user.name  "ShotCart Scout Bot"
+          git add index.html
+          git diff --staged --quiet || \
+            git commit -m "📸 Event dashboard update $(date +'%Y-%m-%d')" && \
+            git push
