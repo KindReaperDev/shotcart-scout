@@ -35,4 +35,16 @@ jobs:
           git config --global user.email "scout-bot@shotcart.app"
           git config --global user.name "ShotCart Scout Bot"
           git add index.html
-          git diff --staged --quiet || git commit -m "Update dashboard $(date +'%Y-%m-%d')" && git push
+          if git diff --staged --quiet; then
+            echo "No dashboard changes to commit."
+            exit 0
+          fi
+          git commit -m "Update dashboard $(date +'%Y-%m-%d')"
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push && exit 0
+            echo "Push attempt $i failed, retrying..."
+            sleep 3
+          done
+          echo "Push failed after 3 attempts" >&2
+          exit 1
