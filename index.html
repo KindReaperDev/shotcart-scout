@@ -8,213 +8,54 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0a;
-  --surface:#111;
-  --surface2:#181818;
-  --border:#222;
-  --text:#e8e0d4;
-  --muted:#5a5550;
-  --accent:#f5a623;
-  --accent2:#c8b08a;
-  --green:#7ec8a4;
-  --blue:#6b9fd4;
+  --bg:#0a0a0a; --surface:#111; --surface2:#181818; --border:#222;
+  --text:#e8e0d4; --muted:#5a5550; --accent:#f5a623; --accent2:#c8b08a;
+  --green:#7ec8a4; --blue:#6b9fd4;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'DM Sans',sans-serif;
-  font-weight:300;
-  min-height:100vh;
-  letter-spacing:0.01em;
-}
-
-/* ── HEADER ── */
-header{
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  padding:28px 40px 22px;
-  position:sticky;top:0;z-index:10;
-  backdrop-filter:blur(12px);
-}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;letter-spacing:0.01em}
+header{background:var(--bg);border-bottom:1px solid var(--border);padding:28px 40px 22px;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;max-width:960px;margin:0 auto}
-.wordmark{
-  font-family:'Playfair Display',serif;
-  font-size:1.35rem;
-  font-weight:900;
-  color:var(--text);
-  letter-spacing:-0.01em;
-}
+.wordmark{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:var(--text);letter-spacing:-0.01em}
 .wordmark em{color:var(--accent);font-style:normal}
 .header-sub{font-size:0.72rem;color:var(--muted);margin-top:3px;font-family:'DM Mono',monospace;letter-spacing:0.06em}
 .header-meta{text-align:right}
 .updated{font-size:0.7rem;color:var(--muted);font-family:'DM Mono',monospace}
-.weights{
-  font-size:0.68rem;color:var(--muted);
-  font-family:'DM Mono',monospace;
-  margin-top:6px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  padding:4px 10px;border-radius:4px;
-  letter-spacing:0.04em;
-}
-
-/* ── MAIN ── */
+.weights{font-size:0.68rem;color:var(--muted);font-family:'DM Mono',monospace;margin-top:6px;background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:4px;letter-spacing:0.04em}
 main{max-width:960px;margin:0 auto;padding:40px 24px 80px}
-
-/* ── TOP PICKS ── */
-.top-picks{
-  border:1px solid #2a2218;
-  background:linear-gradient(160deg,#131008 0%,#0d0d0d 100%);
-  border-radius:12px;
-  padding:28px 28px 20px;
-  margin-bottom:52px;
-  position:relative;
-  overflow:hidden;
-}
-.top-picks::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
-  opacity:0.6;
-}
-.section-label{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:0.14em;
-  color:var(--accent);
-  text-transform:uppercase;
-  margin-bottom:22px;
-}
-
-/* ── CATEGORY ── */
+.top-picks{border:1px solid #2a2218;background:linear-gradient(160deg,#131008 0%,#0d0d0d 100%);border-radius:12px;padding:28px 28px 20px;margin-bottom:52px;position:relative;overflow:hidden}
+.top-picks::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.6}
+.section-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;margin-bottom:22px}
 .cat-section{margin-bottom:48px}
-.cat-heading{
-  font-family:'Playfair Display',serif;
-  font-size:1.05rem;
-  font-weight:700;
-  color:var(--accent2);
-  margin-bottom:18px;
-  padding-bottom:10px;
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:8px;
-}
-.cat-count{
-  font-family:'DM Mono',monospace;
-  font-size:0.7rem;
-  color:var(--muted);
-  font-weight:400;
-  margin-left:4px;
-}
-
-/* ── CARD ── */
-.card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:18px 20px;
-  margin-bottom:12px;
-  display:flex;
-  gap:18px;
-  position:relative;
-  transition:border-color .2s, transform .15s;
-}
+.cat-section.unconfirmed{opacity:0.75}
+.cat-heading{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--accent2);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.cat-count{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);font-weight:400;margin-left:4px}
+.cat-note{font-size:0.72rem;color:var(--muted);margin-bottom:14px;font-family:'DM Mono',monospace}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:12px;display:flex;gap:18px;position:relative;transition:border-color .2s,transform .15s}
 .card:hover{border-color:#333;transform:translateY(-1px)}
-
-.rank{
-  position:absolute;top:-1px;right:16px;
-  background:var(--accent);
-  color:#000;
-  font-family:'DM Mono',monospace;
-  font-size:0.65rem;
-  font-weight:500;
-  padding:2px 8px;
-  border-radius:0 0 6px 6px;
-  letter-spacing:0.05em;
-}
-
-/* ── SCORE RING ── */
+.rank{position:absolute;top:-1px;right:16px;background:var(--accent);color:#000;font-family:'DM Mono',monospace;font-size:0.65rem;font-weight:500;padding:2px 8px;border-radius:0 0 6px 6px;letter-spacing:0.05em}
 .score-col{flex-shrink:0;display:flex;align-items:flex-start;padding-top:2px}
-.score-ring{
-  width:64px;height:64px;
-  border-radius:50%;
-  border:2.5px solid var(--c,#555);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  background:var(--surface2);
-  flex-shrink:0;
-}
-.score-num{
-  font-family:'DM Mono',monospace;
-  font-size:1.25rem;
-  font-weight:500;
-  color:var(--text);
-  line-height:1;
-}
-.score-tier{
-  font-family:'DM Mono',monospace;
-  font-size:0.42rem;
-  letter-spacing:0.1em;
-  font-weight:500;
-  margin-top:2px;
-  text-transform:uppercase;
-}
-
-/* ── CARD BODY ── */
+.score-ring{width:64px;height:64px;border-radius:50%;border:2.5px solid var(--c,#555);display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface2);flex-shrink:0}
+.score-num{font-family:'DM Mono',monospace;font-size:1.25rem;font-weight:500;color:var(--text);line-height:1}
+.score-tier{font-family:'DM Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;font-weight:500;margin-top:2px;text-transform:uppercase}
 .card-body{flex:1;min-width:0}
-.card-title{
-  font-size:0.97rem;
-  font-weight:500;
-  color:var(--text);
-  text-decoration:none;
-  display:block;
-  margin-bottom:5px;
-  line-height:1.4;
-}
+.card-title{font-size:0.97rem;font-weight:500;color:var(--text);text-decoration:none;display:block;margin-bottom:5px;line-height:1.4}
 .card-title:hover{color:var(--accent)}
-.card-meta{
-  font-size:0.75rem;
-  color:var(--muted);
-  margin-bottom:10px;
-  line-height:1.6;
-  font-family:'DM Mono',monospace;
-  letter-spacing:0.02em;
-}
+.card-meta{font-size:0.75rem;color:var(--muted);margin-bottom:10px;line-height:1.6;font-family:'DM Mono',monospace;letter-spacing:0.02em}
 .pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
-.pill{
-  font-size:0.72rem;
-  padding:3px 9px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  color:var(--muted);
-  white-space:nowrap;
-}
+.pill{font-size:0.72rem;padding:3px 9px;border-radius:20px;border:1px solid var(--border);color:var(--muted);white-space:nowrap}
 .pill.weather{border-color:#2a2a1a;background:#181810;color:#c8c080}
 .pill.golden{border-color:#2a1f08;background:#160f02;color:var(--accent)}
+.pill.badge{border-color:#1a2028;background:#0d1218;color:#7a99b8}
+.pill.badge.resolved{border-color:#1a2818;background:#0d1808;color:var(--green)}
+.pill.badge.tbd{border-color:#28201a;background:#180f08;color:#c8946a}
+.pattern{font-size:0.7rem;color:var(--muted);margin:4px 0 8px;font-family:'DM Mono',monospace}
 .desc{font-size:0.78rem;color:#4a4540;margin:6px 0 8px;line-height:1.55}
-.breakdown{
-  font-size:0.68rem;
-  color:var(--muted);
-  font-family:'DM Mono',monospace;
-  letter-spacing:0.03em;
-}
+.breakdown{font-size:0.68rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.03em}
 .breakdown b{color:#6a6560}
-
-/* ── EMPTY ── */
 .empty{text-align:center;color:var(--muted);padding:48px;font-size:0.85rem;font-family:'DM Mono',monospace}
-
-/* ── FOOTER ── */
-footer{
-  border-top:1px solid var(--border);
-  padding:20px 40px;
-  text-align:center;
-  font-size:0.68rem;
-  color:var(--muted);
-  font-family:'DM Mono',monospace;
-  letter-spacing:0.04em;
-}
-
+footer{border-top:1px solid var(--border);padding:20px 40px;text-align:center;font-size:0.68rem;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:0.04em}
 @media(max-width:580px){
   header{padding:20px}
   main{padding:24px 16px 60px}
@@ -233,8 +74,8 @@ footer{
       <div class="header-sub">WAYNE COUNTY &amp; METRO DETROIT &nbsp;·&nbsp; PHOTOGRAPHY OPPORTUNITY FINDER</div>
     </div>
     <div class="header-meta">
-      <div class="updated">Updated May 11, 2026  6:42 PM ET</div>
-      <div class="updated" style="margin-top:2px">16 events · next run ~2 days</div>
+      <div class="updated">Updated May 11, 2026  7:34 PM ET</div>
+      <div class="updated" style="margin-top:2px">30 confirmed · 1 unconfirmed · 5 filtered out</div>
       <div class="weights">Weights → Weather <b>35%</b>  Golden Hour <b>30%</b>  Attendance <b>20%</b>  Parking <b>15%</b></div>
     </div>
   </div>
@@ -243,177 +84,80 @@ footer{
 <main>
 
   <div class="top-picks">
-    <div class="section-label">⭐ &nbsp;Top Picks This Cycle</div>
+    <div class="section-label">⭐ &nbsp;Top Picks · Next 5 Days</div>
     
-<div class="card" data-score="66.0">
+<div class="card" data-score="67.0">
   <div class="rank">#1</div>
   <div class="score-col">
     <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">66.0</span>
+      <span class="score-num">67.0</span>
       <span class="score-tier" style="color:#7ec8a4">STRONG</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://www.ticketmaster.com/detroit-tigers-tickets/artist/805940?home_away=home" target="_blank" rel="noopener">Detroit Tigers vs. Seattle Mariners</a>
+    <a class="card-title" href="https://www.romi.gov/calendar.aspx?CID=22" target="_blank" rel="noopener">Royal Oak Farmers Market</a>
     <div class="card-meta">
-      📅 Fri Jun 5
-       · ⏰ 6:40 PM
-      
-       · 📍 Comerica Park, Detroit
-    </div>
-    <div class="pills">
-      
-      <span class="pill golden">🌅 Golden Hour 8:06 PM–9:06 PM</span>
-    </div>
-    <p class="desc">Detroit Tigers home game vs. Seattle Mariners with postgame fireworks.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
-  </div>
-</div>
-<div class="card" data-score="64.5">
-  <div class="rank">#2</div>
-  <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">64.5</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.michigan.org/fairs-festivals" target="_blank" rel="noopener">Theut's Flower Barn Tulip Festival</a>
-    <div class="card-meta">
-      📅 Mon May 11
-      
-      
-       · 📍 Theut's Flower Barn, Richmond
+      📅 Sat May 16
+       · ⏰ 7:00 AM
+       · 📍 Royal Oak Farmers Market
     </div>
     <div class="pills">
       
         <span class="pill weather">
-          ☁️ Overcast · 58°F
-          
+          🌦️ Drizzle · 79°F
+          · 💨 18 mph
         </span>
-      <span class="pill golden">🌅 Golden Hour 7:44 PM–8:44 PM</span>
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span>
     </div>
-    <p class="desc">Tulip festival featuring seasonal flowers and farm activities.</p>
-    <div class="breakdown">Weather <b>78</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>70</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+    <div class="pattern">↺ Saturdays 7am-1pm year-round</div>
+    <p class="desc">Weekly farmers market with farm producers selling from an enclosed building.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>100</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>100</b></div>
   </div>
 </div>
-<div class="card" data-score="63.0">
-  <div class="rank">#3</div>
+<div class="card" data-score="56.5">
+  <div class="rank">#2</div>
   <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">63.0</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">56.5</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://standscout.com/blog/best-farmers-markets-detroit-2026" target="_blank" rel="noopener">Eastern Market - Saturday</a>
+    <a class="card-title" href="https://easternmarket.org/" target="_blank" rel="noopener">Saturday Market</a>
     <div class="card-meta">
-      📅 Date TBD
+      📅 Sat May 16
        · ⏰ 6:00 AM
-       · ↺ Recurring
        · 📍 Eastern Market, Detroit
     </div>
     <div class="pills">
       
-      
+        <span class="pill weather">
+          🌦️ Drizzle · 79°F
+          · 💨 18 mph
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span>
     </div>
-    <p class="desc">Year-round Saturday farmers market with 250+ independent vendors.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+    <div class="pattern">↺ Every Saturday 6am-4pm year-round</div>
+    <p class="desc">Weekly year-round farmers market at Eastern Market.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
   </div>
 </div>
-  </div>
-
-  
-<section class="cat-section">
-  <h2 class="cat-heading">🏟️ Sports Events <span class="cat-count">4</span></h2>
-  
-<div class="card" data-score="66.0">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">66.0</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.ticketmaster.com/detroit-tigers-tickets/artist/805940?home_away=home" target="_blank" rel="noopener">Detroit Tigers vs. Seattle Mariners</a>
-    <div class="card-meta">
-      📅 Fri Jun 5
-       · ⏰ 6:40 PM
-      
-       · 📍 Comerica Park, Detroit
-    </div>
-    <div class="pills">
-      
-      <span class="pill golden">🌅 Golden Hour 8:06 PM–9:06 PM</span>
-    </div>
-    <p class="desc">Detroit Tigers home game vs. Seattle Mariners with postgame fireworks.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
-  </div>
-</div>
-<div class="card" data-score="58.2">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">58.2</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.cbssports.com/nba/teams/det/detroit-pistons/schedule/" target="_blank" rel="noopener">Detroit Pistons at TBA</a>
-    <div class="card-meta">
-      📅 Fri May 15
-      
-      
-       · 📍 Away, Detroit
-    </div>
-    <div class="pills">
-      
-      <span class="pill golden">🌅 Golden Hour 7:48 PM–8:48 PM</span>
-    </div>
-    <p class="desc">Detroit Pistons away game against opponent TBA.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>38</b></div>
-  </div>
-</div>
-<div class="card" data-score="55.8">
-  
+<div class="card" data-score="50.5">
+  <div class="rank">#3</div>
   <div class="score-col">
     <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">55.8</span>
+      <span class="score-num">50.5</span>
       <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://www.detcityfc.com/news/2026/03/12/dcfc-kicks-off-2026-season/" target="_blank" rel="noopener">Detroit City FC vs Brooklyn FC</a>
-    <div class="card-meta">
-      📅 Sat Mar 14
-      
-      
-       · 📍 Keyworth Stadium, Detroit
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Detroit City FC opens their 2026 USL Championship season at home against Brooklyn FC.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>55</b></div>
-  </div>
-</div>
-<div class="card" data-score="50.4">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">50.4</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.cbssports.com/nba/teams/det/detroit-pistons/schedule/" target="_blank" rel="noopener">Detroit Pistons vs TBA</a>
+    <a class="card-title" href="https://www.stubhub.com/detroit-pistons-detroit-tickets-5-13-2026/event/160286157/" target="_blank" rel="noopener">Detroit Pistons vs Cleveland Cavaliers - Eastern Conference Finals Game 1</a>
     <div class="card-meta">
       📅 Wed May 13
-      
-      
-       · 📍 Detroit
+       · ⏰ 1:00 PM
+       · 📍 Little Caesars Arena, Detroit
     </div>
     <div class="pills">
       
@@ -422,154 +166,58 @@ footer{
           
         </span>
       <span class="pill golden">🌅 Golden Hour 7:46 PM–8:46 PM</span>
+      
     </div>
-    <p class="desc">Detroit Pistons home game against opponent TBA.</p>
-    <div class="breakdown">Weather <b>14</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+    
+    <p class="desc">Detroit Pistons home playoff game against Cleveland Cavaliers in Eastern Conference Finals.</p>
+    <div class="breakdown">Weather <b>14</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>100</b></div>
   </div>
 </div>
-</section>
+  </div>
+
+  
 <section class="cat-section">
-  <h2 class="cat-heading">🎪 Festivals & Fairs <span class="cat-count">6</span></h2>
+  <h2 class="cat-heading">🌾 Farmers Markets <span class="cat-count">8</span></h2>
   
-<div class="card" data-score="64.5">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">64.5</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.michigan.org/fairs-festivals" target="_blank" rel="noopener">Theut's Flower Barn Tulip Festival</a>
-    <div class="card-meta">
-      📅 Mon May 11
-      
-      
-       · 📍 Theut's Flower Barn, Richmond
-    </div>
-    <div class="pills">
-      
-        <span class="pill weather">
-          ☁️ Overcast · 58°F
-          
-        </span>
-      <span class="pill golden">🌅 Golden Hour 7:44 PM–8:44 PM</span>
-    </div>
-    <p class="desc">Tulip festival featuring seasonal flowers and farm activities.</p>
-    <div class="breakdown">Weather <b>78</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>70</b> &nbsp;·&nbsp; Parking <b>55</b></div>
-  </div>
-</div>
-<div class="card" data-score="55.8">
+<div class="card" data-score="48.1">
   
   <div class="score-col">
     <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">55.8</span>
+      <span class="score-num">48.1</span>
       <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://www.detroitriverfront.org/events/calendar/2026/06/18/shimmer-on-the-river" target="_blank" rel="noopener">Shimmer on the River</a>
+    <a class="card-title" href="http://www.wyandottefarmersmarket.com" target="_blank" rel="noopener">Wyandotte Farmers Market</a>
     <div class="card-meta">
-      📅 Thu Jun 18
-      
-       · ↺ Recurring
-       · 📍 Robert C. Valade Park, Detroit
+      📅 Thu May 14
+       · ⏰ 2:00 PM
+       · 📍 Corner of Elm and First Street, Downtown Wyandotte
     </div>
     <div class="pills">
       
-      <span class="pill golden">🌅 Golden Hour 8:13 PM–9:13 PM</span>
+      <span class="pill golden">🌅 Golden Hour 7:47 PM–8:47 PM</span>
+      <span class="pill badge">↺ Recurring</span>
     </div>
-    <p class="desc">Family-friendly night featuring live musical performances and food.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+    <div class="pattern">↺ Every Thursday 2:00 PM - 7:00 PM, June through October</div>
+    <p class="desc">Weekly farmers market featuring local vendors and fresh produce.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
   </div>
 </div>
-<div class="card" data-score="55.7">
+<div class="card" data-score="56.5">
   
   <div class="score-col">
     <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">55.7</span>
+      <span class="score-num">56.5</span>
       <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://www.yelp.com/search?find_desc=Festivals&find_loc=Wayne+County%2C+MI" target="_blank" rel="noopener">Allen Park Street Fair</a>
-    <div class="card-meta">
-      📅 Date TBD
-      
-      
-       · 📍 Allen Rd, Allen Park
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Street fair in Allen Park.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>65</b> &nbsp;·&nbsp; Parking <b>68</b></div>
-  </div>
-</div>
-<div class="card" data-score="53.8">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">53.8</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://littleguidedetroit.com/ultimate-guide-to-2026-summer-festivals-fireworks-in-metro-detroit/" target="_blank" rel="noopener">Palmer Park Art Fair</a>
-    <div class="card-meta">
-      📅 Date TBD
-      
-      
-       · 📍 Palmer Park, Detroit
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Art fair in Palmer Park during June 2026.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>65</b> &nbsp;·&nbsp; Parking <b>55</b></div>
-  </div>
-</div>
-<div class="card" data-score="50.8">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">50.8</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.detroitriverwaterfestival.com/" target="_blank" rel="noopener">Detroit River Water Festival - Spring</a>
-    <div class="card-meta">
-      📅 Tue May 5
-      
-       · ↺ Recurring
-       · 📍 Detroit Riverfront
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Spring water festival celebrating the Detroit River.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
-  </div>
-</div>
-<div class="card" data-score="40.2">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">40.2</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.waynecountymi.gov/Parks-Recreation/Special-Events-and-Programs" target="_blank" rel="noopener">Crosswinds Marsh Nature Event</a>
+    <a class="card-title" href="https://easternmarket.org/" target="_blank" rel="noopener">Saturday Market</a>
     <div class="card-meta">
       📅 Sat May 16
-      
-      
-       · 📍 Crosswinds Marsh, Woodhaven
+       · ⏰ 6:00 AM
+       · 📍 Eastern Market, Detroit
     </div>
     <div class="pills">
       
@@ -578,15 +226,424 @@ footer{
           · 💨 18 mph
         </span>
       <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span>
     </div>
-    <p class="desc">Free event featuring live animals, nature activities, fishing, scavenger hunt and inflatables.</p>
-    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+    <div class="pattern">↺ Every Saturday 6am-4pm year-round</div>
+    <p class="desc">Weekly year-round farmers market at Eastern Market.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="67.0">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#7ec8a4">
+      <span class="score-num">67.0</span>
+      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.romi.gov/calendar.aspx?CID=22" target="_blank" rel="noopener">Royal Oak Farmers Market</a>
+    <div class="card-meta">
+      📅 Sat May 16
+       · ⏰ 7:00 AM
+       · 📍 Royal Oak Farmers Market
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          🌦️ Drizzle · 79°F
+          · 💨 18 mph
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span>
+    </div>
+    <div class="pattern">↺ Saturdays 7am-1pm year-round</div>
+    <p class="desc">Weekly farmers market with farm producers selling from an enclosed building.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>100</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>100</b></div>
+  </div>
+</div>
+<div class="card" data-score="87.8">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#f5a623">
+      <span class="score-num">87.8</span>
+      <span class="score-tier" style="color:#f5a623">PRIORITY</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://easternmarket.org/happenings/" target="_blank" rel="noopener">Flower Day</a>
+    <div class="card-meta">
+      📅 Sun May 17
+       · ⏰ 7:00 AM
+       · 📍 Eastern Market, Detroit
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          ☁️ Overcast · 78°F
+          
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:50 PM–8:50 PM</span>
+      
+    </div>
+    
+    <p class="desc">Annual Flower Day celebration at Eastern Market with extended hours.</p>
+    <div class="breakdown">Weather <b>78</b> &nbsp;·&nbsp; Golden Hour <b>100</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="49.0">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">49.0</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://easternmarket.org/events/" target="_blank" rel="noopener">Flower Tuesday Market</a>
+    <div class="card-meta">
+      📅 Tue May 19
+       · ⏰ 9:00 AM
+       · 📍 Eastern Market, Detroit
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          🌦️ Light Drizzle · 83°F
+          · 💨 16 mph
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:52 PM–8:52 PM</span>
+      <span class="pill badge">↺ Recurring</span>
+    </div>
+    <div class="pattern">↺ Every Tuesday in May 9am-3pm</div>
+    <p class="desc">Special Tuesday flower market in May at Eastern Market.</p>
+    <div class="breakdown">Weather <b>28</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="56.8">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">56.8</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.northville.org/events/details/northville-farmers-market-2026-05-21-2026-6796" target="_blank" rel="noopener">Northville Farmers Market</a>
+    <div class="card-meta">
+      📅 Thu May 21
+       · ⏰ 8:00 AM
+       · 📍 550 W Seven Mile Rd, Northville
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:54 PM–8:54 PM</span>
+      <span class="pill badge">↺ Recurring</span>
+    </div>
+    <div class="pattern">↺ Thursdays 8:00 AM - 2:00 PM, May through October</div>
+    <p class="desc">Annual farmers market with seasonal offerings by Michigan growers, vendors, and crafters.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
+  </div>
+</div>
+<div class="card" data-score="34.1">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#888">
+      <span class="score-num">34.1</span>
+      <span class="score-tier" style="color:#888">SKIP</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://mifma.org/find-a-farmers-market/" target="_blank" rel="noopener">Dearborn Farmers and Artisans Market</a>
+    <div class="card-meta">
+      📅 Fri Jun 5
+       · ⏰ 2:00 PM
+       · 📍 Dearborn
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:06 PM–9:06 PM</span>
+      <span class="pill badge">↺ Recurring</span><span class="pill badge resolved">📌 Next occurrence</span>
+    </div>
+    <div class="pattern">↺ Fridays 2pm June through August</div>
+    <p class="desc">Farmers market with vegetables, fruits, and artisan vendors.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
+  </div>
+</div>
+<div class="card" data-score="34.1">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#888">
+      <span class="score-num">34.1</span>
+      <span class="score-tier" style="color:#888">SKIP</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.dearbornsummermarket.com/" target="_blank" rel="noopener">Dearborn Summer Market</a>
+    <div class="card-meta">
+      📅 Fri Jun 12
+       · ⏰ 4:00 PM
+       · 📍 Peace Park West, Downtown Dearborn
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:11 PM–9:11 PM</span>
+      <span class="pill badge">↺ Recurring</span>
+    </div>
+    <div class="pattern">↺ one Friday per month 4pm-8pm June through August</div>
+    <p class="desc">Monthly farmers market featuring food and artisan vendors.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
   </div>
 </div>
 </section>
 <section class="cat-section">
-  <h2 class="cat-heading">🌾 Farmers Markets <span class="cat-count">4</span></h2>
+  <h2 class="cat-heading">🏟️ Sports Events <span class="cat-count">5</span></h2>
   
+<div class="card" data-score="50.5">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">50.5</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.stubhub.com/detroit-pistons-detroit-tickets-5-13-2026/event/160286157/" target="_blank" rel="noopener">Detroit Pistons vs Cleveland Cavaliers - Eastern Conference Finals Game 1</a>
+    <div class="card-meta">
+      📅 Wed May 13
+       · ⏰ 1:00 PM
+       · 📍 Little Caesars Arena, Detroit
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          🌧️ Rain · 56°F
+          
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:46 PM–8:46 PM</span>
+      
+    </div>
+    
+    <p class="desc">Detroit Pistons home playoff game against Cleveland Cavaliers in Eastern Conference Finals.</p>
+    <div class="breakdown">Weather <b>14</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>100</b></div>
+  </div>
+</div>
+<div class="card" data-score="66.0">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#7ec8a4">
+      <span class="score-num">66.0</span>
+      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.mlb.com/tigers/tickets/single-game-tickets" target="_blank" rel="noopener">Detroit Tigers vs Toronto Blue Jays</a>
+    <div class="card-meta">
+      📅 Fri May 15
+       · ⏰ 6:45 PM
+       · 📍 Comerica Park, Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:48 PM–8:48 PM</span>
+      
+    </div>
+    
+    <p class="desc">Detroit Tigers home game vs Toronto Blue Jays.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="77.3">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#7ec8a4">
+      <span class="score-num">77.3</span>
+      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://concerts.consequence.net/events/detroit-pistons-at-little-caesars-arena--14" target="_blank" rel="noopener">Detroit Pistons vs Cleveland Cavaliers - Eastern Conference Finals Game 2</a>
+    <div class="card-meta">
+      📅 Sun May 17
+      
+       · 📍 Little Caesars Arena, Detroit
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          ☁️ Overcast · 78°F
+          
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:50 PM–8:50 PM</span>
+      
+    </div>
+    
+    <p class="desc">Detroit Pistons home playoff game against Cleveland Cavaliers in Eastern Conference Finals.</p>
+    <div class="breakdown">Weather <b>78</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>100</b></div>
+  </div>
+</div>
+<div class="card" data-score="53.5">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">53.5</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://seatgeek.com/detroit-tigers-tickets/schedule" target="_blank" rel="noopener">Detroit Tigers home game</a>
+    <div class="card-meta">
+      📅 Wed May 27
+      
+       · 📍 Comerica Park, Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:59 PM–8:59 PM</span>
+      
+    </div>
+    
+    <p class="desc">Detroit Tigers home game at Comerica Park.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="52.3">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">52.3</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.detcityfc.com/mens-schedule/" target="_blank" rel="noopener">Detroit City FC vs El Paso Locomotive FC</a>
+    <div class="card-meta">
+      📅 Wed Jun 10
+       · ⏰ 7:30 PM
+       · 📍 Keyworth Stadium, Hamtramck
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:09 PM–9:09 PM</span>
+      
+    </div>
+    
+    <p class="desc">Detroit City FC home match against El Paso Locomotive FC in the USL Championship.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+</section>
+<section class="cat-section">
+  <h2 class="cat-heading">🎪 Festivals & Fairs <span class="cat-count">2</span></h2>
+  
+<div class="card" data-score="41.3">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">41.3</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://littleguidedetroit.com/ultimate-guide-to-2026-summer-festivals-fireworks-in-metro-detroit/" target="_blank" rel="noopener">Palmer Park Art Fair</a>
+    <div class="card-meta">
+      📅 Sat Jun 6
+      
+       · 📍 Palmer Park, Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:07 PM–9:07 PM</span>
+      
+    </div>
+    
+    <p class="desc">Art fair in Palmer Park featuring local artists and vendors.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="43.5">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">43.5</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="http://www.waynecountyfairgrounds.net/wayne-county-fair" target="_blank" rel="noopener">Wayne County Fair</a>
+    <div class="card-meta">
+      📅 Mon Aug 10
+      
+       · 📍 Wayne County Fairgrounds, Belleville
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:42 PM–8:42 PM</span>
+      
+    </div>
+    
+    <p class="desc">80th Wayne County Fair featuring grandstand entertainment, youth exhibits, and family activities August 10-15, 2026.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+</section>
+<section class="cat-section">
+  <h2 class="cat-heading">🏃 Recreational Events <span class="cat-count">15</span></h2>
+  
+<div class="card" data-score="47.8">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">47.8</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.runguides.com/michigan/runs" target="_blank" rel="noopener">Upland Hills School Trail Runs</a>
+    <div class="card-meta">
+      📅 Sat May 16
+       · ⏰ 9:30 AM
+       · 📍 Upland Hills School, Wayne
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      
+    </div>
+    
+    <p class="desc">Annual 1 Miler, 5K and 10K Trail runs through Upland Hills.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>40</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+<div class="card" data-score="34.2">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#888">
+      <span class="score-num">34.2</span>
+      <span class="score-tier" style="color:#888">SKIP</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://downtowndetroit.org/event/pickleball-at-beacon-park/2026-05-09/" target="_blank" rel="noopener">Pickleball at Beacon Park - Monthly Tournament</a>
+    <div class="card-meta">
+      📅 Sat May 16
+       · ⏰ 10:00 AM
+       · 📍 Beacon Park, Downtown Detroit
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          🌦️ Drizzle · 79°F
+          · 💨 18 mph
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span><span class="pill badge resolved">📌 Next occurrence</span>
+    </div>
+    <div class="pattern">↺ Saturdays 10am-2pm</div>
+    <p class="desc">Monthly pickleball tournament at Beacon Park in downtown Detroit.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>40</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>35</b></div>
+  </div>
+</div>
 <div class="card" data-score="63.0">
   
   <div class="score-col">
@@ -596,84 +653,36 @@ footer{
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://standscout.com/blog/best-farmers-markets-detroit-2026" target="_blank" rel="noopener">Eastern Market - Saturday</a>
-    <div class="card-meta">
-      📅 Date TBD
-       · ⏰ 6:00 AM
-       · ↺ Recurring
-       · 📍 Eastern Market, Detroit
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Year-round Saturday farmers market with 250+ independent vendors.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
-  </div>
-</div>
-<div class="card" data-score="58.0">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">58.0</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://standscout.com/blog/best-farmers-markets-detroit-2026" target="_blank" rel="noopener">Eastern Market - Tuesday</a>
-    <div class="card-meta">
-      📅 Date TBD
-       · ⏰ 9:00 AM
-       · ↺ Recurring
-       · 📍 Eastern Market, Detroit
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Summer farmers market running June-September on Tuesdays.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
-  </div>
-</div>
-<div class="card" data-score="52.7">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">52.7</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://patch.com/michigan/detroit/here-are-10-farmers-markets-check-out-detroit-area-2026" target="_blank" rel="noopener">Dearborn Summer Market</a>
-    <div class="card-meta">
-      📅 Date TBD
-      
-       · ↺ Recurring
-       · 📍 Dearborn Summer Market
-    </div>
-    <div class="pills">
-      
-      
-    </div>
-    <p class="desc">Dearborn area farmers market occurring the second of each month during summer.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
-  </div>
-</div>
-<div class="card" data-score="51.2">
-  
-  <div class="score-col">
-    <div class="score-ring" style="--c:#6b9fd4">
-      <span class="score-num">51.2</span>
-      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
-    </div>
-  </div>
-  <div class="card-body">
-    <a class="card-title" href="https://www.facebook.com/groups/744543781028240/posts/1370213188461293/" target="_blank" rel="noopener">TSC Farmers Markets</a>
+    <a class="card-title" href="https://www.woodwarddreamcruise.com/" target="_blank" rel="noopener">Woodward Dream Cruise 2026</a>
     <div class="card-meta">
       📅 Sat May 16
-       · ⏰ 8:00 AM
-       · ↺ Recurring
-       · 📍 TSC Farmers Markets, Wayne County
+      
+       · 📍 Woodward Avenue, Metro Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      <span class="pill badge">↺ Recurring</span><span class="pill badge resolved">📌 Next occurrence</span>
+    </div>
+    <div class="pattern">↺ Saturday, August 15 annually 9:00 AM - 9:00 PM</div>
+    <p class="desc">World's largest one-day automotive event with classic cars and automotive celebration.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="36.2">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#888">
+      <span class="score-num">36.2</span>
+      <span class="score-tier" style="color:#888">SKIP</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.facebook.com/DetroitBoatShow/posts/-37th-annual-great-lakes-boating-festival-may-16-17-2026-at-the-grosse-pointe-ya/1443924337533597/" target="_blank" rel="noopener">37th Annual Great Lakes Boating Festival</a>
+    <div class="card-meta">
+      📅 Sat May 16
+       · ⏰ 12:00 PM
+       · 📍 Grosse Pointe Yacht Club
     </div>
     <div class="pills">
       
@@ -682,37 +691,40 @@ footer{
           · 💨 18 mph
         </span>
       <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      
     </div>
-    <p class="desc">Weekly farmers market with local vendors and fresh produce.</p>
-    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>68</b></div>
+    
+    <p class="desc">37th Annual Great Lakes Boating Festival at Grosse Pointe Yacht Club.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>20</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>55</b></div>
   </div>
 </div>
-</section>
-<section class="cat-section">
-  <h2 class="cat-heading">🏃 Recreational Events <span class="cat-count">2</span></h2>
-  
-<div class="card" data-score="59.8">
+<div class="card" data-score="43.2">
   
   <div class="score-col">
-    <div class="score-ring" style="--c:#7ec8a4">
-      <span class="score-num">59.8</span>
-      <span class="score-tier" style="color:#7ec8a4">STRONG</span>
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">43.2</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://wcchallenge.org/" target="_blank" rel="noopener">Girls Inc. 5K</a>
+    <a class="card-title" href="https://www.waterwayguide.com/nav-alert/4-29647/mi-lake-st-clair-detroit-regatta-races" target="_blank" rel="noopener">LMYC Shakedown Regatta</a>
     <div class="card-meta">
       📅 Sat May 16
-       · ⏰ 8:00 AM
-      
-       · 📍 Wayne County
+       · ⏰ 9:00 AM
+       · 📍 Lake St. Clair, Detroit
     </div>
     <div class="pills">
       
+        <span class="pill weather">
+          🌦️ Drizzle · 79°F
+          · 💨 18 mph
+        </span>
       <span class="pill golden">🌅 Golden Hour 7:49 PM–8:49 PM</span>
+      
     </div>
-    <p class="desc">5K race organized by Wayne County Challenge.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+    
+    <p class="desc">LMYC Shakedown Regatta sailing race on Lake St. Clair.</p>
+    <div class="breakdown">Weather <b>20</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
   </div>
 </div>
 <div class="card" data-score="58.0">
@@ -724,19 +736,281 @@ footer{
     </div>
   </div>
   <div class="card-body">
-    <a class="card-title" href="https://www.trisignup.com/Race/MI/Detroit/MotorCityTri" target="_blank" rel="noopener">Motor City Triathlon</a>
+    <a class="card-title" href="https://www.facebook.com/detroitgp/posts/a-celebration-of-detroits-car-culture-will-return-for-the-2026-detroit-grand-pri/1299202428914673/" target="_blank" rel="noopener">7th Annual Memorial Day Showdown</a>
     <div class="card-meta">
-      📅 Sun Jun 21
+      📅 Sat May 23
       
-       · ↺ Recurring
+       · 📍 Gateway Classic Cars of Detroit, Dearborn
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:56 PM–8:56 PM</span>
+      
+    </div>
+    
+    <p class="desc">Michigan's largest season-opener car show.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="39.6">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#888">
+      <span class="score-num">39.6</span>
+      <span class="score-tier" style="color:#888">SKIP</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://wyandotteboatclub.com/regattas/wy-hi-regatta/" target="_blank" rel="noopener">2026 Wy-Hi Regatta</a>
+    <div class="card-meta">
+      📅 Sat May 23
+      
+       · 📍 BASF Waterfront Park, Wyandotte
+    </div>
+    <div class="pills">
+      
+        <span class="pill weather">
+          🌦️ Light Drizzle · 69°F
+          
+        </span>
+      <span class="pill golden">🌅 Golden Hour 7:56 PM–8:56 PM</span>
+      
+    </div>
+    
+    <p class="desc">Invitational scholastic sailing regatta at BASF Waterfront Park.</p>
+    <div class="breakdown">Weather <b>28</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+<div class="card" data-score="41.8">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">41.8</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://trainerday.com/events/us/ronde-belle-isle-mi-2026-555ced" target="_blank" rel="noopener">Ronde Belle Isle 2026</a>
+    <div class="card-meta">
+      📅 Fri May 29
+      
+       · 📍 Belle Isle, Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:01 PM–9:01 PM</span>
+      
+    </div>
+    
+    <p class="desc">Cycling event organized by Michigan Junior Devo and Michigan Bike Racing Association.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>42</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+<div class="card" data-score="51.9">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">51.9</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.detroitgp.com/event-info/cruise-night" target="_blank" rel="noopener">Detroit Grand Prix Cruise Night Presented by the Detroit Auto Show</a>
+    <div class="card-meta">
+      📅 Fri May 29
+       · ⏰ 6:30 PM
+       · 📍 Detroit Grand Prix venue, downtown Detroit
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:01 PM–9:01 PM</span>
+      
+    </div>
+    
+    <p class="desc">Showcase of over 100 classic cars and cruise culture presented by the Detroit Auto Show.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>60</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="42.9">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">42.9</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://detroitzoo.org/events/wild-summer-nights/" target="_blank" rel="noopener">Wild Summer Nights 2026 - June 3</a>
+    <div class="card-meta">
+      📅 Wed Jun 3
+       · ⏰ 6:00 PM
+       · 📍 Detroit Zoo
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:05 PM–9:05 PM</span>
+      <span class="pill badge">↺ Recurring</span>
+    </div>
+    <div class="pattern">↺ June 3, June 10, June 24, July 1 from 6:00 PM to 7:30 PM</div>
+    <p class="desc">Outdoor summer concert series with live music at the Detroit Zoo.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>40</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="45.2">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">45.2</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://easternmarket.org/events/detroit-riverfront-run-2026-packet-pickup/" target="_blank" rel="noopener">Detroit Riverfront Run 2026</a>
+    <div class="card-meta">
+      📅 Sat Jun 6
+      
+       · 📍 Detroit Riverwalk
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:07 PM–9:07 PM</span>
+      
+    </div>
+    
+    <p class="desc">5K and 10K run/walk event showcasing the Detroit Riverwalk.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="41.3">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">41.3</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.belleisleconservancy.org/" target="_blank" rel="noopener">Riverblast! 2026</a>
+    <div class="card-meta">
+      📅 Wed Jun 10
+      
        · 📍 Belle Isle Park, Detroit
     </div>
     <div class="pills">
       
-      <span class="pill golden">🌅 Golden Hour 8:14 PM–9:14 PM</span>
+      <span class="pill golden">🌅 Golden Hour 8:09 PM–9:09 PM</span>
+      <span class="pill badge">↺ Recurring</span>
     </div>
-    <p class="desc">21st Motor City Triathlons & Duathlon featuring Olympic, Sprint, and Super Sprint triathlon events.</p>
-    <div class="breakdown">Weather <b>50</b> &nbsp;·&nbsp; Golden Hour <b>50</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+    <div class="pattern">↺ Wednesdays at Sunset, beginning June 10th</div>
+    <p class="desc">Music On Belle Isle Group (MoBIG) presents Riverblast! concert series on Wednesdays beginning June 10th at Sunset.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+<div class="card" data-score="50.5">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">50.5</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.trisignup.com/Race/MI/Detroit/MotorCityTri" target="_blank" rel="noopener">Motor City Triathlon</a>
+    <div class="card-meta">
+      📅 Sun Jun 21
+       · ⏰ 7:00 AM
+       · 📍 Detroit, MI
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:14 PM–9:14 PM</span>
+      
+    </div>
+    
+    <p class="desc">Outdoor triathlon featuring Olympic, Sprint, and Super Sprint distances.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>75</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+<div class="card" data-score="54.4">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">54.4</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://theparade.org/ford-fireworks/rooftop-party/" target="_blank" rel="noopener">2026 Ford Fireworks</a>
+    <div class="card-meta">
+      📅 Mon Jun 22
+       · ⏰ 10:00 PM
+       · 📍 Detroit River
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 8:14 PM–9:14 PM</span>
+      
+    </div>
+    
+    <p class="desc">The 68th Ford Fireworks over the Detroit River, one of America's biggest fireworks celebrations.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b>80</b> &nbsp;·&nbsp; Attendance <b>100</b> &nbsp;·&nbsp; Parking <b>55</b></div>
+  </div>
+</div>
+<div class="card" data-score="41.3">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">41.3</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://findarace.com/us/events/in-the-cut-5k" target="_blank" rel="noopener">In the Cut 5K</a>
+    <div class="card-meta">
+      📅 Sat Sep 5
+      
+       · 📍 Nankin Mills Recreation Area, Westland
+    </div>
+    <div class="pills">
+      
+      <span class="pill golden">🌅 Golden Hour 7:01 PM–8:01 PM</span>
+      
+    </div>
+    
+    <p class="desc">Annual In the Cut 5K Fun Run/Walk at scenic Nankin Mills Recreation Area.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>50</b> &nbsp;·&nbsp; Parking <b>70</b></div>
+  </div>
+</div>
+</section>
+
+  
+<section class="cat-section unconfirmed">
+  <h2 class="cat-heading">⚠ Unconfirmed Dates <span class="cat-count">1</span></h2>
+  <p class="cat-note">These events passed location filtering but have no confirmable date. Verify before planning a shoot.</p>
+  
+<div class="card" data-score="41.8">
+  
+  <div class="score-col">
+    <div class="score-ring" style="--c:#6b9fd4">
+      <span class="score-num">41.8</span>
+      <span class="score-tier" style="color:#6b9fd4">MONITOR</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <a class="card-title" href="https://www.runguides.com/event/32741/chocolate-run" target="_blank" rel="noopener">2026 Chocolate Run</a>
+    <div class="card-meta">
+      📅 Date TBD
+      
+       · 📍 Belle Isle, Detroit
+    </div>
+    <div class="pills">
+      
+      
+      <span class="pill badge tbd">⚠ Date unconfirmed</span>
+    </div>
+    
+    <p class="desc">KONA Chocolate Run celebration hosted on Belle Isle.</p>
+    <div class="breakdown">Weather <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Golden Hour <b style="color:#4a4540">—</b> &nbsp;·&nbsp; Attendance <b>42</b> &nbsp;·&nbsp; Parking <b>55</b></div>
   </div>
 </div>
 </section>
