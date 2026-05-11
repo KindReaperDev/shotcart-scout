@@ -25,6 +25,8 @@ MAX_MILES       = CONFIG.get("max_distance_miles", 60)
 TOP_WINDOW_DAYS = CONFIG.get("top_picks_window_days", 7)
 ALLOWED_CITIES  = {c.lower() for c in CONFIG.get("allowed_cities", [])}
 BLOCKED_VENUES  = [v.lower() for v in CONFIG.get("blocked_venues", [])]
+LOW_CONF_DOMAINS    = [d.lower() for d in CONFIG.get("low_confidence_domains", [])]
+SPECULATIVE_KEYWORDS = [k.lower() for k in CONFIG.get("speculative_event_keywords", [])]
 
 client     = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 SERPER_KEY = os.environ["SERPER_API_KEY"]
@@ -260,6 +262,7 @@ CRITICAL FILTERING RULES — apply these BEFORE adding an event to the output:
    - Any Detroit team game at a venue you don't recognize as a Detroit venue. REJECT if unsure.
    Detroit home venues: Comerica Park (Tigers), Little Caesars Arena (Pistons & Red Wings), Ford Field (Lions), Keyworth Stadium (Detroit City FC), Michigan Stadium (Ann Arbor — borderline, accept).
 4. Reject generic placeholder events ("Detroit Pistons vs opponent", "TBA vs TBA", season-schedule landing pages without a specific game).
+5. SPECULATIVE PLAYOFF LISTINGS — ticket resellers (StubHub, Vivid Seats, SeatGeek, TicketSmarter, Gametime, TickPick, etc.) pre-list hypothetical playoff games before brackets are decided. These listings have placeholder times (often "1:00 PM" or "12:00 PM") and titles like "Eastern Conference Finals Game 1" or "NBA Finals Game 3". REJECT any event from these reseller domains that references playoffs, conference finals, NBA/MLB/NHL Finals, "Game N", or World Series unless the same matchup is corroborated by an official source (mlb.com, nba.com, nhl.com, the team's official site). Default to rejecting playoff-themed reseller listings — false negatives are fine, false positives mislead the photographer.
 5. If you cannot determine the city or it's not clearly in Michigan, set state to the best guess and the post-processor will drop it. Don't invent "Detroit" to make events pass.
 6. Prefer events that have a real date. For recurring events, set recurring=true and fill recurrence_pattern even if a single date can't be pinned — the post-processor will compute the next occurrence.
 
@@ -347,6 +350,18 @@ PLACEHOLDER_PATTERNS = [
 ]
 
 DETROIT_TEAMS = ["tigers", "pistons", "red wings", "lions", "detroit city fc", "detroit fc"]
+
+def is_speculative_reseller_event(event):
+    """True if the event looks like a reseller's pre-listed playoff game."""
+    url = (event.get("url") or "").lower()
+    if not any(domain in url for domain in LOW_CONF_DOMAINS):
+        return False
+    title_blob = " ".join(filter(None, [
+        event.get("title") or "",
+        event.get("description") or "",
+    ])).lower()
+    return any(kw in title_blob for kw in SPECULATIVE_KEYWORDS)
+
 
 def is_placeholder_title(title):
     t = (title or "").lower()
@@ -795,6 +810,12 @@ def main():
             if is_placeholder_title(title):
                 dropped_log.append((title, "placeholder title"))
                 print(f"  ✂  drop (placeholder): {title}")
+                continue
+
+            # Reseller speculative playoff listing filter
+            if is_speculative_reseller_event(event):
+                dropped_log.append((title, "speculative reseller listing"))
+                print(f"  ✂  drop (speculative reseller): {title}")
                 continue
 
             # Location filter

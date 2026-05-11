@@ -30,6 +30,19 @@
     "Pleasant Ridge", "Huntington Woods", "Ann Arbor"
   ],
 
+  "low_confidence_domains": [
+    "stubhub.com", "vividseats.com", "seatgeek.com", "ticketsmarter.com",
+    "gametime.co", "scoretix.com", "tickpick.com", "razorgator.com",
+    "ticketcity.com", "ticketnetwork.com", "ticketiq.com"
+  ],
+
+  "speculative_event_keywords": [
+    "eastern conference finals", "western conference finals", "nba finals",
+    "conference finals", "world series", "stanley cup", "nhl playoffs",
+    "nba playoffs", "mlb playoffs", "playoff game", "game 1", "game 2",
+    "game 3", "game 4", "game 5", "game 6", "game 7", "if necessary"
+  ],
+
   "blocked_venues": [
     "rocket mortgage fieldhouse", "fiserv forum", "united center",
     "madison square garden", "scotiabank arena", "wells fargo center",
