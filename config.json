@@ -6,6 +6,8 @@
   },
 
   "days_ahead": 30,
+  "max_distance_miles": 60,
+  "top_picks_window_days": 5,
 
   "scoring_weights": {
     "weather":     0.35,
@@ -14,25 +16,68 @@
     "parking":     0.15
   },
 
+  "allowed_cities": [
+    "Detroit", "Dearborn", "Dearborn Heights", "Livonia", "Westland",
+    "Garden City", "Allen Park", "Taylor", "Trenton", "Wyandotte",
+    "Grosse Pointe", "Grosse Pointe Park", "Grosse Pointe Farms",
+    "Grosse Pointe Woods", "Grosse Pointe Shores", "Plymouth", "Canton",
+    "Northville", "Romulus", "Hamtramck", "Highland Park", "Redford",
+    "Belleville", "Wayne", "Inkster", "Lincoln Park", "Ecorse",
+    "River Rouge", "Melvindale", "Riverview", "Southgate", "Woodhaven",
+    "Brownstown", "Flat Rock", "Rockwood", "Gibraltar", "Grosse Ile",
+    "Harper Woods", "Hamtramck", "Royal Oak", "Ferndale", "Birmingham",
+    "Berkley", "Madison Heights", "Troy", "Southfield", "Oak Park",
+    "Pleasant Ridge", "Huntington Woods", "Ann Arbor"
+  ],
+
+  "blocked_venues": [
+    "rocket mortgage fieldhouse", "fiserv forum", "united center",
+    "madison square garden", "scotiabank arena", "wells fargo center",
+    "td garden", "barclays center", "crypto.com arena", "chase center",
+    "kia center", "kaseya center", "spectrum center", "paycom center",
+    "target center", "ball arena", "footprint center", "moda center",
+    "smoothie king center", "frost bank center", "delta center",
+    "yankee stadium", "fenway park", "wrigley field", "citi field",
+    "petco park", "t-mobile park", "globe life field", "minute maid park"
+  ],
+
   "search_queries": {
     "Farmers Markets": [
-      "Wayne County Michigan farmers market schedule 2026",
-      "Metro Detroit outdoor farmers market summer 2026"
+      "Eastern Market Detroit Saturday market schedule 2026",
+      "Royal Oak farmers market 2026 schedule",
+      "Dearborn farmers market 2026 Michigan",
+      "Wyandotte farmers market 2026 Michigan",
+      "Northville farmers market 2026 Michigan"
     ],
     "Sports Events": [
-      "Detroit Tigers home game schedule June 2026",
-      "Detroit Pistons Red Wings upcoming game 2026",
-      "Detroit FC soccer Wayne County 2026"
+      "Detroit Tigers home games Comerica Park 2026 schedule",
+      "Detroit Pistons home games Little Caesars Arena 2026",
+      "Detroit Red Wings home games Little Caesars Arena 2026",
+      "Detroit FC soccer home matches Keyworth Stadium 2026"
     ],
     "Festivals & Fairs": [
-      "Wayne County Michigan outdoor festival summer 2026",
-      "Metro Detroit fair expo street festival 2026",
-      "Downriver Detroit cultural festival 2026"
+      "Detroit Michigan outdoor festival summer 2026",
+      "Wayne County Michigan fair street festival 2026",
+      "Downriver Detroit Michigan cultural festival 2026",
+      "Dearborn Michigan festival summer 2026"
     ],
     "Recreational Events": [
-      "Wayne County 5k 10k run race 2026",
-      "Metro Detroit triathlon outdoor community event 2026",
-      "Wayne County pickleball tournament charity walk 2026"
+      "Wayne County Michigan 5k 10k race 2026",
+      "Detroit Michigan triathlon outdoor 2026",
+      "Metro Detroit Michigan pickleball tournament charity walk 2026",
+      "Belle Isle Detroit Michigan running race 2026",
+      "Detroit Michigan outdoor concert series park 2026",
+      "Woodward Dream Cruise classic car show Michigan 2026",
+      "Metro Detroit Michigan car cruise classic auto show 2026",
+      "Detroit Michigan outdoor movie night park 2026",
+      "Detroit Riverfront Michigan free event 2026",
+      "Belle Isle Park Detroit Michigan event 2026",
+      "Detroit Michigan fireworks show 2026",
+      "Metro Detroit Michigan boat parade regatta 2026",
+      "Detroit Michigan holiday market tree lighting 2026",
+      "Dearborn Livonia Michigan community festival 2026",
+      "Detroit Michigan kite festival hot air balloon 2026",
+      "Metro Detroit Michigan dog parade pet community event 2026"
     ]
   }
 }
